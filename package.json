@@ -1,0 +1,19 @@
+{
+  "name": "commision-calculator",
+  "version": "1.0.0",
+  "description": "CLI app for calculate the commission data by the input source",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/RomSribn/Commission-Calculator.git"
+  },
+  "author": "RomanSribnyi <steeper.fest@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RomSribn/Commission-Calculator/issues"
+  },
+  "homepage": "https://github.com/RomSribn/Commission-Calculator#readme"
+}
