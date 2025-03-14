@@ -3,7 +3,7 @@ import CashOutJuridicalCalculator from '#calculators/cash-out-juridical-calculat
 describe('CashOutJuridicalCalculator', () => {
   const config = {
     percents: 0.3,
-    min: { amount: 0.5, currency: 'EUR' }
+    min: { amount: 0.5, currency: 'EUR' },
   };
 
   let calculator;
@@ -18,7 +18,7 @@ describe('CashOutJuridicalCalculator', () => {
       user_id: 2,
       user_type: 'juridical',
       type: 'cash_out',
-      operation: { amount: 1000.00, currency: 'EUR' }
+      operation: { amount: 1000.00, currency: 'EUR' },
     };
 
     // Expected fee: 1000 * 0.3% = 3 EUR
@@ -31,7 +31,7 @@ describe('CashOutJuridicalCalculator', () => {
       user_id: 2,
       user_type: 'juridical',
       type: 'cash_out',
-      operation: { amount: 100.00, currency: 'EUR' }
+      operation: { amount: 100.00, currency: 'EUR' },
     };
 
     // Expected fee would be 0.3 EUR, but min is 0.5 EUR
@@ -44,7 +44,7 @@ describe('CashOutJuridicalCalculator', () => {
       user_id: 2,
       user_type: 'juridical',
       type: 'cash_out',
-      operation: { amount: 1234.56, currency: 'EUR' }
+      operation: { amount: 1234.56, currency: 'EUR' },
     };
 
     // Expected fee: 1234.56 * 0.3% = 3.70 EUR (rounded up from 3.70368)

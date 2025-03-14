@@ -3,7 +3,7 @@ import CashInCalculator from '#calculators/cash-in-calculator';
 describe('CashInCalculator', () => {
   const config = {
     percents: 0.03,
-    max: { amount: 5, currency: 'EUR' }
+    max: { amount: 5, currency: 'EUR' },
   };
 
   let calculator;
@@ -18,7 +18,7 @@ describe('CashInCalculator', () => {
       user_id: 1,
       user_type: 'natural',
       type: 'cash_in',
-      operation: { amount: 1000.00, currency: 'EUR' }
+      operation: { amount: 1000.00, currency: 'EUR' },
     };
 
     // Expected fee: 1000 * 0.03% = 0.3 EUR
@@ -31,7 +31,7 @@ describe('CashInCalculator', () => {
       user_id: 1,
       user_type: 'natural',
       type: 'cash_in',
-      operation: { amount: 100000.00, currency: 'EUR' }
+      operation: { amount: 100000.00, currency: 'EUR' },
     };
 
     // Expected fee would be 30 EUR, but max is 5 EUR
@@ -44,7 +44,7 @@ describe('CashInCalculator', () => {
       user_id: 1,
       user_type: 'natural',
       type: 'cash_in',
-      operation: { amount: 1234.56, currency: 'EUR' }
+      operation: { amount: 1234.56, currency: 'EUR' },
     };
 
     // Expected fee: 1234.56 * 0.03% = 0.37068 EUR, rounded up to 0.38 EUR

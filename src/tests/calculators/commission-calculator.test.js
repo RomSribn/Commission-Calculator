@@ -5,16 +5,16 @@ describe('CommissionCalculator', () => {
   const configs = {
     cashInConfig: {
       percents: 0.03,
-      max: { amount: 5, currency: 'EUR' }
+      max: { amount: 5, currency: 'EUR' },
     },
     cashOutNaturalConfig: {
       percents: 0.3,
-      week_limit: { amount: 1000, currency: 'EUR' }
+      week_limit: { amount: 1000, currency: 'EUR' },
     },
     cashOutJuridicalConfig: {
       percents: 0.3,
-      min: { amount: 0.5, currency: 'EUR' }
-    }
+      min: { amount: 0.5, currency: 'EUR' },
+    },
   };
 
   let calculator;
@@ -29,7 +29,7 @@ describe('CommissionCalculator', () => {
       user_id: 1,
       user_type: USER_TYPE.NATURAL,
       type: TRANSACTION_TYPE.CASH_IN,
-      operation: { amount: 1000.00, currency: 'EUR' }
+      operation: { amount: 1000.00, currency: 'EUR' },
     };
 
     // Expected fee: 1000 * 0.03% = 0.3 EUR
@@ -42,7 +42,7 @@ describe('CommissionCalculator', () => {
       user_id: 1,
       user_type: USER_TYPE.NATURAL,
       type: TRANSACTION_TYPE.CASH_OUT,
-      operation: { amount: 1500.00, currency: 'EUR' }
+      operation: { amount: 1500.00, currency: 'EUR' },
     };
 
     // Expected fee: (1500 - 1000) * 0.3% = 1.5 EUR
@@ -55,7 +55,7 @@ describe('CommissionCalculator', () => {
       user_id: 2,
       user_type: USER_TYPE.JURIDICAL,
       type: TRANSACTION_TYPE.CASH_OUT,
-      operation: { amount: 1000.00, currency: 'EUR' }
+      operation: { amount: 1000.00, currency: 'EUR' },
     };
 
     // Expected fee: 1000 * 0.3% = 3 EUR
@@ -68,7 +68,7 @@ describe('CommissionCalculator', () => {
       user_id: 1,
       user_type: USER_TYPE.NATURAL,
       type: 'invalid_type',
-      operation: { amount: 1000.00, currency: 'EUR' }
+      operation: { amount: 1000.00, currency: 'EUR' },
     };
 
     expect(() => calculator.calculate(transaction)).toThrow('Unsupported transaction type or user type');
@@ -80,7 +80,7 @@ describe('CommissionCalculator', () => {
       user_id: 1,
       user_type: 'invalid_user_type',
       type: TRANSACTION_TYPE.CASH_OUT,
-      operation: { amount: 1000.00, currency: 'EUR' }
+      operation: { amount: 1000.00, currency: 'EUR' },
     };
 
     expect(() => calculator.calculate(transaction)).toThrow('Unsupported transaction type or user type');

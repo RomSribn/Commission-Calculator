@@ -3,7 +3,7 @@ import CashOutNaturalCalculator from '#calculators/cash-out-natural-calculator';
 describe('CashOutNaturalCalculator', () => {
   const config = {
     percents: 0.3,
-    week_limit: { amount: 1000, currency: 'EUR' }
+    week_limit: { amount: 1000, currency: 'EUR' },
   };
 
   let calculator;
@@ -18,7 +18,7 @@ describe('CashOutNaturalCalculator', () => {
       user_id: 1,
       user_type: 'natural',
       type: 'cash_out',
-      operation: { amount: 500.00, currency: 'EUR' }
+      operation: { amount: 500.00, currency: 'EUR' },
     };
 
     // Expected fee: 0 EUR (under weekly limit)
@@ -31,7 +31,7 @@ describe('CashOutNaturalCalculator', () => {
       user_id: 1,
       user_type: 'natural',
       type: 'cash_out',
-      operation: { amount: 400.00, currency: 'EUR' }
+      operation: { amount: 400.00, currency: 'EUR' },
     };
 
     const transaction2 = {
@@ -39,7 +39,7 @@ describe('CashOutNaturalCalculator', () => {
       user_id: 1,
       user_type: 'natural',
       type: 'cash_out',
-      operation: { amount: 500.00, currency: 'EUR' }
+      operation: { amount: 500.00, currency: 'EUR' },
     };
 
     // Both transactions should be free (total 900 EUR, under 1000 EUR limit)
@@ -53,7 +53,7 @@ describe('CashOutNaturalCalculator', () => {
       user_id: 1,
       user_type: 'natural',
       type: 'cash_out',
-      operation: { amount: 1500.00, currency: 'EUR' }
+      operation: { amount: 1500.00, currency: 'EUR' },
     };
 
     // Expected fee: (1500 - 1000) * 0.3% = 1.5 EUR
@@ -69,7 +69,7 @@ describe('CashOutNaturalCalculator', () => {
       user_id: 1,
       user_type: 'natural',
       type: 'cash_out',
-      operation: { amount: 800.00, currency: 'EUR' }
+      operation: { amount: 800.00, currency: 'EUR' },
     };
 
     const transaction2 = {
@@ -77,12 +77,12 @@ describe('CashOutNaturalCalculator', () => {
       user_id: 1,
       user_type: 'natural',
       type: 'cash_out',
-      operation: { amount: 300.00, currency: 'EUR' }
+      operation: { amount: 300.00, currency: 'EUR' },
     };
 
     // First transaction: free (under limit)
     expect(calculator.calculateFee(transaction1)).toBe('0.00');
-    
+
     // Second transaction: (800 + 300 - 1000) * 0.3% = 0.3 EUR
     expect(calculator.calculateFee(transaction2)).toBe('0.30');
   });
@@ -96,7 +96,7 @@ describe('CashOutNaturalCalculator', () => {
       user_id: 1,
       user_type: 'natural',
       type: 'cash_out',
-      operation: { amount: 1000.00, currency: 'EUR' }
+      operation: { amount: 1000.00, currency: 'EUR' },
     };
 
     const transaction2 = {
@@ -104,7 +104,7 @@ describe('CashOutNaturalCalculator', () => {
       user_id: 1,
       user_type: 'natural',
       type: 'cash_out',
-      operation: { amount: 1000.00, currency: 'EUR' }
+      operation: { amount: 1000.00, currency: 'EUR' },
     };
 
     // Both transactions should be free (each within their respective week's limit)
@@ -121,7 +121,7 @@ describe('CashOutNaturalCalculator', () => {
       user_id: 1,
       user_type: 'natural',
       type: 'cash_out',
-      operation: { amount: 1000.00, currency: 'EUR' }
+      operation: { amount: 1000.00, currency: 'EUR' },
     };
 
     const transaction2 = {
@@ -129,7 +129,7 @@ describe('CashOutNaturalCalculator', () => {
       user_id: 2, // Different user
       user_type: 'natural',
       type: 'cash_out',
-      operation: { amount: 1000.00, currency: 'EUR' }
+      operation: { amount: 1000.00, currency: 'EUR' },
     };
 
     // Both transactions should be free (each user has their own limit)
