@@ -29,17 +29,20 @@ class CommissionCalculator {
    * @returns {number} The calculated fee amount
    */
   calculate(transaction) {
-    if (transaction.type === TRANSACTION_TYPE.CASH_IN) {
+    const { type, user_type: userType } = transaction;
+
+    if (type === TRANSACTION_TYPE.CASH_IN) {
       return this.cashInCalculator.calculateFee(transaction);
     }
-    if (transaction.type === TRANSACTION_TYPE.CASH_OUT) {
-      if (transaction.user_type === USER_TYPE.NATURAL) {
-        return this.cashOutNaturalCalculator.calculateFee(transaction);
-      }
-      if (transaction.user_type === USER_TYPE.JURIDICAL) {
-        return this.cashOutJuridicalCalculator.calculateFee(transaction);
-      }
+
+    if (type === TRANSACTION_TYPE.CASH_OUT && userType === USER_TYPE.NATURAL) {
+      return this.cashOutNaturalCalculator.calculateFee(transaction);
     }
+
+    if (type === TRANSACTION_TYPE.CASH_OUT && userType === USER_TYPE.JURIDICAL) {
+      return this.cashOutJuridicalCalculator.calculateFee(transaction);
+    }
+
     throw new Error('Unsupported transaction type or user type');
   }
 }
