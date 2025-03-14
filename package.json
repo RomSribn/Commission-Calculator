@@ -1,8 +1,15 @@
 {
-  "name": "commision-calculator",
+  "name": "commission-calculator",
   "version": "1.0.0",
-  "description": "CLI app for calculate the commission data by the input source",
+  "description": "Calculation of fees for cash in / cash out operations with dynamic receipt of configurations",
   "main": "src/index.js",
+  "type": "module",
+  "imports": {
+    "#calculators/*": "./src/calculators/*.js",
+    "#tests": "./src/tests/*.js",
+    "#utils/*": "./src/utils/*.js",
+    "#config": "./src/config.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,10 +17,17 @@
     "type": "git",
     "url": "git+ssh://git@github.com/RomSribn/Commission-Calculator.git"
   },
-  "author": "RomanSribnyi <steeper.fest@gmail.com>",
+  "author": "Roman Sribnyi <roman.sribnyi@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/RomSribn/Commission-Calculator/issues"
   },
-  "homepage": "https://github.com/RomSribn/Commission-Calculator#readme"
+  "homepage": "https://github.com/RomSribn/Commission-Calculator#readme",
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.0",
+    "@eslint/js": "^9.22.0",
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-sonarjs": "^3.0.2"
+  }
 }
