@@ -17,6 +17,7 @@ export default [
     pluginJs.configs.recommended,
     sonarjs.configs.recommended,
     ...compat.extends("eslint-config-airbnb-base"),
+    ...compat.extends("plugin:jest/recommended"),
     {
         rules: {
             semi: "error",
