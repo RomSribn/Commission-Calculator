@@ -8,6 +8,7 @@
     "#calculators/*": "./src/calculators/*.js",
     "#tests": "./src/tests/*.js",
     "#utils/*": "./src/utils/*.js",
+    "#utils": "./src/utils/index.js",
     "#config": "./src/config.js"
   },
   "scripts": {
